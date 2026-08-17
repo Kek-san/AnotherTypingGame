@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Action OnEnemyDies;
+    public Action<Enemy> OnEnemyDies;
 
     [SerializeField] private TextMeshProUGUI _textUI;
     [SerializeField] private int _hp = 1;
@@ -85,7 +85,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage) {
         _hp -= damage;
         if(_hp <= 0) {
-            OnEnemyDies?.Invoke();
+            OnEnemyDies?.Invoke(this);
             Destroy(gameObject);
         }
     }

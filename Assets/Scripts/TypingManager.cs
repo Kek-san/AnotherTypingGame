@@ -30,7 +30,7 @@ public class TypingManager : MonoBehaviour
         _target.OnEnemyDies += CheckTargetList;
     }
 
-    private void CheckTargetList() {
+    private void CheckTargetList(Enemy enemy) {
         //Have a target list manager 
         //Checks if there are targets on the list
         //picks the first target on the list
